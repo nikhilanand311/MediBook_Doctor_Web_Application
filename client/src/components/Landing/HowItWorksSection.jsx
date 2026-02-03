@@ -104,7 +104,7 @@ const HowItWorksSection = () => {
                                 <div key={index} className="col-md-6 col-lg-3 position-relative">
                                     {/* Step Card */}
                                     <div
-                                        className="p-4 rounded-4 card-glass-light card-hover-lift"
+                                        className="p-4 rounded-4 glass-card card-hover-lift"
                                         style={{ transition: 'all 0.5s ease' }}
                                     >
                                         {/* Number Badge */}

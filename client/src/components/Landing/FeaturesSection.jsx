@@ -133,7 +133,7 @@ const FeaturesSection = () => {
                         return (
                             <div key={index} className="col-md-6 col-lg-4">
                                 <div
-                                    className="p-4 rounded-4 h-100 card-glass-light card-hover-lift"
+                                    className="p-4 rounded-4 h-100 glass-card card-hover-lift"
                                     style={{
                                         transition: 'all 0.5s ease',
                                         animationDelay: `${index * 100}ms`

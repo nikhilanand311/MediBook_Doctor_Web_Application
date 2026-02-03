@@ -101,7 +101,7 @@ const DoctorsSection = () => {
           {doctors.map((doctor, index) => (
             <div key={doctor._id || index} className="col-md-6 col-lg-4">
               <div
-                className="p-4 rounded-4 card-glass-light card-hover-lift h-100"
+                className="p-4 rounded-4 glass-card card-hover-lift h-100"
                 style={{ transition: "all 0.5s ease" }}
               >
                 {/* Doctor Avatar */}

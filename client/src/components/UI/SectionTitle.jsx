@@ -22,7 +22,7 @@ const SectionTitle = ({
                 </span>
             )}
 
-            <h2 className="display-5 fw-bold text-dark mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="display-5 fw-bold mb-3" style={{ color: 'var(--text-primary)' }}>
                 {title}
             </h2>
 

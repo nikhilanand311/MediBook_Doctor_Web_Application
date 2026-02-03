@@ -103,7 +103,7 @@ const TestimonialsSection = () => {
                     {/* Main Testimonial Card */}
                     <div className="position-relative">
                         <div
-                            className="p-4 p-md-5 rounded-4 card-glass-light"
+                            className="p-4 p-md-5 rounded-4 glass-card"
                             style={{ transition: 'all 0.5s ease' }}
                         >
                             {/* Quote Icon */}
@@ -162,7 +162,7 @@ const TestimonialsSection = () => {
                         {/* Navigation Arrows */}
                         <button
                             onClick={prev}
-                            className="btn position-absolute rounded-circle d-flex align-items-center justify-content-center card-glass-light"
+                            className="btn position-absolute rounded-circle d-flex align-items-center justify-content-center glass-card"
                             style={{
                                 left: 0,
                                 top: '50%',
@@ -178,7 +178,7 @@ const TestimonialsSection = () => {
                         </button>
                         <button
                             onClick={next}
-                            className="btn position-absolute rounded-circle d-flex align-items-center justify-content-center card-glass-light"
+                            className="btn position-absolute rounded-circle d-flex align-items-center justify-content-center glass-card"
                             style={{
                                 right: 0,
                                 top: '50%',
