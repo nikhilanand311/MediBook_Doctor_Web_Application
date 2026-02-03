@@ -1,0 +1,43 @@
+/* ============================================
+   BASE STYLES - index.css
+   Global styles for the application
+   ============================================ */
+
+/* Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Base HTML/Body Styles */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Override Bootstrap's default font */
+:root {
+  --bs-body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid #0EA5E9;
+  outline-offset: 2px;
+}
+
+/* Remove default button focus outline */
+button:focus:not(:focus-visible) {
+  outline: none;
+}

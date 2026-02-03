@@ -1,0 +1,338 @@
+/* ============================================
+   DASHBOARD STYLES - dashboard.css
+   Styles for Dashboard page
+   ============================================ */
+
+/* Dashboard page background */
+.dashboard-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #6366f1 100%);
+}
+
+/* Dashboard navbar */
+.dashboard-nav {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dashboard-nav-brand-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-nav-brand-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #7c3aed;
+}
+
+.dashboard-nav-brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+}
+
+.dashboard-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dashboard-logout-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.dashboard-logout-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Dashboard content */
+.dashboard-content {
+    padding: 3rem 0;
+}
+
+/* Dashboard welcome section */
+.dashboard-welcome h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-welcome p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Dashboard stat cards */
+.dashboard-stat-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-stat-card:hover {
+    transform: scale(1.05);
+}
+
+.dashboard-stat-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-stat-icon.purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+}
+
+.dashboard-stat-icon.green {
+    background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+}
+
+.dashboard-stat-icon.orange {
+    background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+}
+
+.dashboard-stat-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.dashboard-stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.dashboard-stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* Dashboard info card */
+.dashboard-info-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.dashboard-info-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-info-card h2 svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #7c3aed;
+}
+
+/* Dashboard info row */
+.dashboard-info-row {
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.dashboard-info-row:last-child {
+    border-bottom: none;
+}
+
+.dashboard-info-label {
+    width: 33.333%;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.dashboard-info-value {
+    width: 66.666%;
+    color: #111827;
+    font-weight: 500;
+}
+
+/* Verified badge */
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.625rem;
+    background-color: #d1fae5;
+    color: #065f46;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    margin-top: 0.5rem;
+}
+
+.verified-badge svg {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+/* Dashboard action buttons */
+.dashboard-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 1.5rem;
+}
+
+.dashboard-btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dashboard-btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #2563eb 100%);
+}
+
+.dashboard-btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 0.5rem;
+    color: #374151;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dashboard-btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+/* Security notice */
+.security-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+}
+
+.security-notice svg {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #2563eb;
+    margin-top: 0.125rem;
+}
+
+.security-notice h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 0.25rem;
+}
+
+/* ... existing styles ... */
+
+.security-notice p {
+    font-size: 0.875rem;
+    color: #1d4ed8;
+    margin: 0;
+}
+
+/* User Dashboard Specific Adjustments */
+.dashboard-content h2,
+.dashboard-welcome h1,
+.dashboard-welcome p {
+    color: #ffffff;
+    /* Ensure white text on dark gradient */
+}
+
+.dashboard-content .card {
+    background: rgba(255, 255, 255, 0.95);
+    /* High opacity white for cards */
+    color: #1f2937;
+    /* Dark text for card content */
+}
+
+.dashboard-content .card h5 {
+    color: #111827;
+    /* Dark title */
+}
+
+.dashboard-content .card .text-muted {
+    color: #6b7280 !important;
+    /* Force muted grey */
+}
+
+/* Tabs Visibility */
+.nav-tabs {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-tabs .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link:hover {
+    color: white;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-tabs .nav-link.active {
+    color: #4f46e5;
+    /* Primary color */
+    background: white;
+    font-weight: 600;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
