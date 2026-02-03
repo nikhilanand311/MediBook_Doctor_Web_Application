@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/landing';
+// Use environment variable for production, fallback to localhost for development
+const API_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/landing`;
 
 // Create a standalone instance if we wanted specific config, but simple axios is fine for public endpoints.
 // We return the axios promise directly to match the behavior of the previous api.jsx implementation
