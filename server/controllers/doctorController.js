@@ -1,6 +1,5 @@
 import Doctor from '../models/Doctor.js';
-import fs from 'fs';
-import path from 'path';
+import { uploadToCloudinary, deleteFromCloudinary, getPublicIdFromUrl } from '../config/cloudinaryConfig.js';
 
 // @desc    Get all doctors
 // @route   GET /api/doctors
@@ -48,9 +47,16 @@ export const createDoctor = async (req, res, next) => {
     try {
         const doctorData = { ...req.body };
 
-        // Handle file upload
+        // Handle file upload to Cloudinary
         if (req.file) {
-            doctorData.image = `/uploads/doctors/${req.file.filename}`;
+            try {
+                const result = await uploadToCloudinary(req.file.buffer, 'doctors');
+                doctorData.image = result.secure_url;
+            } catch (uploadError) {
+                console.error('Cloudinary upload error:', uploadError);
+                // Fallback to placeholder if Cloudinary fails
+                doctorData.image = `https://ui-avatars.com/api/?name=${encodeURIComponent(doctorData.name || 'Doctor')}&background=random&size=200`;
+            }
         } else if (!doctorData.image) {
             // Generate a default placeholder if no image provided
             doctorData.image = `https://ui-avatars.com/api/?name=${encodeURIComponent(doctorData.name || 'Doctor')}&background=random&size=200`;
@@ -83,16 +89,22 @@ export const updateDoctor = async (req, res, next) => {
 
         const updateData = { ...req.body };
 
-        // Handle file upload
+        // Handle file upload to Cloudinary
         if (req.file) {
-            // Delete old image if it exists and is a local file
-            if (doctor.image && doctor.image.startsWith('/uploads/')) {
-                const oldImagePath = path.join(process.cwd(), doctor.image);
-                if (fs.existsSync(oldImagePath)) {
-                    fs.unlinkSync(oldImagePath);
+            try {
+                // Delete old image from Cloudinary if it exists
+                const oldPublicId = getPublicIdFromUrl(doctor.image);
+                if (oldPublicId) {
+                    await deleteFromCloudinary(oldPublicId);
                 }
+
+                // Upload new image
+                const result = await uploadToCloudinary(req.file.buffer, 'doctors');
+                updateData.image = result.secure_url;
+            } catch (uploadError) {
+                console.error('Cloudinary upload error:', uploadError);
+                // Keep old image if upload fails
             }
-            updateData.image = `/uploads/doctors/${req.file.filename}`;
         }
 
         doctor = await Doctor.findByIdAndUpdate(req.params.id, updateData, {
@@ -123,11 +135,14 @@ export const deleteDoctor = async (req, res, next) => {
             });
         }
 
-        // Delete image file if it exists and is a local file
-        if (doctor.image && doctor.image.startsWith('/uploads/')) {
-            const imagePath = path.join(process.cwd(), doctor.image);
-            if (fs.existsSync(imagePath)) {
-                fs.unlinkSync(imagePath);
+        // Delete image from Cloudinary if it exists
+        const publicId = getPublicIdFromUrl(doctor.image);
+        if (publicId) {
+            try {
+                await deleteFromCloudinary(publicId);
+            } catch (deleteError) {
+                console.error('Error deleting image from Cloudinary:', deleteError);
+                // Continue with doctor deletion even if image deletion fails
             }
         }
 

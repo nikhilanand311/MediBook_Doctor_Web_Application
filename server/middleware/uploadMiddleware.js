@@ -1,24 +1,9 @@
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
 
-// Ensure uploads directory exists
-const uploadDir = './uploads/doctors';
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-// Configure storage
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, uploadDir);
-    },
-    filename: function (req, file, cb) {
-        // Generate unique filename: timestamp-randomstring.extension
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, uniqueSuffix + path.extname(file.originalname));
-    }
-});
+// Use memory storage for Cloudinary uploads (not disk storage)
+// This allows us to upload the buffer directly to Cloudinary
+const storage = multer.memoryStorage();
 
 // File filter - only allow images
 const fileFilter = (req, file, cb) => {
@@ -33,7 +18,7 @@ const fileFilter = (req, file, cb) => {
     }
 };
 
-// Create multer upload instance
+// Create multer upload instance with memory storage
 const upload = multer({
     storage: storage,
     limits: {
