@@ -1,4 +1,4 @@
-# MediBook MediBook_Doctor_Web_Application - Healthcare Appointment Booking System
+# MediBook_Doctor_Web_Application - Healthcare Appointment Booking System
 
 <div align="center">
 
